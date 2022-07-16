@@ -1,4 +1,5 @@
 name: Deploy Test
+
 on:
   push:
     branches: [main, develop, product]
@@ -11,7 +12,9 @@ jobs:
     strategy:
       matrix:
         node: [14, 16, 18]
+
     steps:
+
       - name: check repo
         uses: actions/checkout@v2
       - name: setup node version ${{matrix.node-version}}
