@@ -1,7 +1,7 @@
-name: Deploy Test
-    push :
+name:  Deploy Test
+push:
       branches: [main,develop,product]
-    pull_requests:
+pull_requests:
       branches: [main,develop,product]
 jops:
     buld :
@@ -9,37 +9,17 @@ jops:
       stragey:
           matrix:
               node:[14,16,18]
-name: node ${{matrix.node}} version
+    name: node ${{matrix.node}} version
 steps:
    - name: check repo
    - uses: action/checkout@v2
    - name: setup node version ${{matrix.node-version}}
    - uses: action/checkout@v1
-   with:
+     with:
       node-version: ${{matrix.node-version}}
    - name: install packages
      run: npm install
 
    - name: run build
      run: npm build    
-
-      run-on: windows
-      stragey:
-          matrix:
-              node:[14,16,18]
-name: node ${{matrix.node}} version
-steps:
-   - name: check repo
-   - uses: action/checkout@v2
-   - name: setup node version ${{matrix.node-version}}
-   - uses: action/checkout@v1
-   with:
-      node-version: ${{matrix.node-version}}
-   - name: install packages
-     run: npm install
-     
-   - name: run build
-     run: npm build                         
-
-
 
