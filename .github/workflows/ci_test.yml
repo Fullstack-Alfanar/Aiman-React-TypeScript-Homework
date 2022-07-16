@@ -1,25 +1,24 @@
-name: Deploy Tset
+name: Deploy Test
 on:
-push:
-  branches: ["main", "develop", "product"]
-pull_requests:
-  branches: ["main", "develop", "product"]
+  push:
+    branches: [main, develop, product]
+  pull_request:
+    branches: [main, develop, product]
 
-jops:
-  buld:
-    run-on: ubuntu-lastest
-    stragey:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
       matrix:
         node: [14, 16, 18]
-      name: ${{matrix.node}} version
-steps:
-  - name: check repo
-    uses: action/checkout@v2
-  - name: setup node version ${{matrix.node-version}}
-    uses: action/checkout@v1
-    with:
-      node-version: ${{matrix.node-version}}
-  - name: install packages
-    run: npm install
-  - name: run build
-    run: npm build
+    steps:
+      - name: check repo
+        uses: actions/checkout@v2
+      - name: setup node version ${{matrix.node-version}}
+        uses: actions/checkout@v1
+        with:
+          node-version: ${{matrix.node}}
+      - name: install packeges
+        run: npm install
+      - name: run build
+        run: npm run build
