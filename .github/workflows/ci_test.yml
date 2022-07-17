@@ -11,14 +11,13 @@ jobs:
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-lastest,macOS-latest ]
+        os: [ubuntu-latest, windows-lastest, macos-latest]
         node: [14, 16, 18]
 
     steps:
-
       - name: check repo
         uses: actions/checkout@v2
-      - name: setup node version ${{matrix.node-version}}
+      - name: setup node version ${{matrix.node}}
         uses: actions/checkout@v1
         with:
           node-version: ${{matrix.node}}
