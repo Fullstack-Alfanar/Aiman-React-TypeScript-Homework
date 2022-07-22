@@ -1,0 +1,38 @@
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 200px;
+}
+
+.main-container label {
+    color: blue;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.main-container input {
+    padding: 5px;
+    border-radius: 10px;
+    border: solid 1px white;
+    text-align: center;
+}
+
+.button-contanier button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px white solid;
+    color: white;
+    background-color: black;
+}
+
+.main-container .button-contanier {
+    margin-top: 20px;
+}
+
+.main-container .message-container {
+    margin-top: 20px;
+    
+}
+
